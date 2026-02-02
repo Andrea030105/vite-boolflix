@@ -6,6 +6,7 @@ export default {
     data() {
         return {
             store,
+            hoverActive: null,
         }
     },
     methods: {
@@ -26,28 +27,56 @@ export default {
 }
 </script>
 <template>
-    <div v-for="(item, index) in store.filmSearchArray" :key="index">
+    <div class="container-img" v-for="(item, index) in store.filmSearchArray" :key="index"
+        @mouseover="hoverActive = index" @mouseleave="hoverActive = null">
         <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title">
-        <p class="text-white">
-            {{ convertVote(item.vote_average) }}
-        </p>
-        <div class="container-star">
-            <i v-for="n in 5" :key="n" :class="getStarClass(n, item.vote_average)"></i>
+        <div class="card-info" v-if="(hoverActive == null)">
+            <p>
+                Titolo: {{ item.original_title }}
+            </p>
+            <p>
+                Titolo Originale: {{ item.title }}
+            </p>
+            <p>
+                Lingua Originale: {{ item.original_language }}
+            </p>
+            <div class="container-star">
+                <i v-for="n in 5" :key="n" :class="getStarClass(n, item.vote_average)"></i>
+            </div>
         </div>
     </div>
-    <!--  {{ item.original_title }}
-    {{ item.title }}
-    {{ item.original_language }}-->
 </template>
 <style lang="scss" scoped>
 @use '../style/patrial/variables' as *;
 
-img {
-    width: 200px;
-    height: 100%;
+.container-img {
+    width: 300px;
+    height: 400px;
+    position: relative;
+
+    img {
+        width: 300px;
+        height: 400px;
+    }
 }
 
-.container-star {
-    color: $starCl;
+.card-info {
+    position: absolute;
+    bottom: 0;
+    background-color: $cardInfoBg;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+
+    .container-star {
+        color: $starCl;
+        font-size: 1.3rem;
+    }
+
+    p {
+        color: $whiteCl;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
 }
 </style>
