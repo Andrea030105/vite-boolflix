@@ -35,7 +35,8 @@ export default {
                 </div>
                 <div class="col-2">
                     <div class="d-flex justify-content-around">
-                        <input type="text" class="form-control w-75" placeholder="Cerca" v-model="store.wordSearch">
+                        <input type="text" class="form-control w-75" placeholder="Cerca" v-model="store.wordSearch"
+                            @keyup.enter="$emit('search')">
                         <button @click="$emit('search')"
                             class="btn btn-outline-success mx-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-magnifying-glass"></i>

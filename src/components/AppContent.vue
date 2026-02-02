@@ -1,7 +1,13 @@
 <script>
+
+import Card from './Card.vue';
+
 import { store } from '../store';
 
 export default {
+    components: {
+        Card,
+    },
     data() {
         return {
             store,
@@ -10,11 +16,18 @@ export default {
 }
 </script>
 <template>
-    <div v-for="(item, index) in store.filmSearchArray" :key="index">
-        {{ item.original_title }}
-        {{ item.title }}
-        {{ item.original_language }}
-        {{ item.vote_average }}
-    </div>
+    <main class="bg-black">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="overflow-x-auto d-flex w-100">
+                            <Card />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </template>
 <style lang="scss" scoped></style>
