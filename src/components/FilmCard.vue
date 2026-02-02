@@ -22,7 +22,7 @@ export default {
             } else {
                 return 'fa-regular fa-star' // Stella vuota
             }
-        }
+        },
     },
 }
 </script>
@@ -30,7 +30,7 @@ export default {
     <div class="container-img" v-for="(item, index) in store.filmSearchArray" :key="index"
         @mouseover="hoverActive = index" @mouseleave="hoverActive = null">
         <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title">
-        <div class="card-info" v-if="(hoverActive == null)">
+        <div class="card-info" v-if="(hoverActive == index)">
             <p>
                 Titolo: {{ item.original_title }}
             </p>
