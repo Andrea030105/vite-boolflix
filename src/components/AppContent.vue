@@ -20,10 +20,10 @@ export default {
 <template>
     <main class="bg-black">
         <section>
-            <div class="container">
+            <div class="container py-5">
                 <div class="row">
                     <div class="col">
-                        <div class="text-white fw-bold fs-3">
+                        <div class="text-white fw-bold fs-3 text-uppercase">
                             <h2>
                                 Film:
                             </h2>
@@ -32,16 +32,16 @@ export default {
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="overflow-x-auto d-flex w-100">
+                        <div class="scrollbar overflow-x-auto d-flex w-100">
                             <FilmCard />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container py-5">
                 <div class="row">
                     <div class="col">
-                        <div class="text-white fw-bold fs-3">
+                        <div class="text-white fw-bold fs-3 text-uppercase">
                             <h2>
                                 Serie TV:
                             </h2>
@@ -50,7 +50,7 @@ export default {
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="overflow-x-auto d-flex w-100">
+                        <div class="scrollbar overflow-x-auto d-flex w-100">
                             <SerieCard />
                         </div>
                     </div>
@@ -59,4 +59,15 @@ export default {
         </section>
     </main>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../style/patrial/variables' as *;
+
+.scrollbar {
+    scrollbar-width: none;
+}
+
+h2:hover {
+    color: $primaryCl;
+    cursor: pointer;
+}
+</style>

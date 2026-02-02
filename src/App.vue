@@ -3,7 +3,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppContent from './components/AppContent.vue';
 import { store } from './store';
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 
 export default {
   data() {
@@ -14,6 +14,14 @@ export default {
   components: {
     AppHeader,
     AppContent,
+  },
+  mounted() {
+    axios.get("https://api.themoviedb.org/3/trending/tv/day?api_key=85916cd89331c75a2a3e981197169b27").then((response) => {
+      store.serieSearchArray = response.data.results
+    });
+    axios.get("https://api.themoviedb.org/3/trending/movie/day?api_key=85916cd89331c75a2a3e981197169b27").then((response) => {
+      store.filmSearchArray = response.data.results
+    })
   },
   methods: {
     titlesearch() {

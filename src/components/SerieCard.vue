@@ -58,6 +58,7 @@ export default {
         width: 300px;
         height: 400px;
     }
+
 }
 
 .card-info {
@@ -67,6 +68,7 @@ export default {
     height: 100%;
     width: 100%;
     padding: 2rem;
+    cursor: pointer;
 
     .container-star {
         color: $starCl;
