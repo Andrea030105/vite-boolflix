@@ -59,26 +59,25 @@ export default {
         height: 400px;
     }
 
-}
+    .card-info {
+        position: absolute;
+        bottom: 0;
+        background-color: $cardInfoBg;
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+        cursor: pointer;
 
-.card-info {
-    position: absolute;
-    bottom: 0;
-    background-color: $cardInfoBg;
-    height: 100%;
-    width: 100%;
-    padding: 2rem;
-    cursor: pointer;
+        .container-star {
+            color: $starCl;
+            font-size: 1.3rem;
+        }
 
-    .container-star {
-        color: $starCl;
-        font-size: 1.3rem;
-    }
-
-    p {
-        color: $whiteCl;
-        font-size: 1.3rem;
-        font-weight: 600;
+        p {
+            color: $whiteCl;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
     }
 }
 </style>
