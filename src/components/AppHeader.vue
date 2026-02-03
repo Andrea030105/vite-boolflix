@@ -52,6 +52,9 @@ export default {
 
 header {
     height: 75px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 
     h2 {
         font-size: 1.5rem;

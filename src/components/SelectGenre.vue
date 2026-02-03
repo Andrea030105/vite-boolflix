@@ -14,7 +14,7 @@ export default {
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-center align-items-center">
-                    <h2 class="text-danger text-uppercase fw-bold my-0 mx-2">
+                    <h2 class="text-danger text-uppercase fw-bold my-0 me-2">
                         Filtra per genere:
                     </h2>
                     <select class="form-select border-black w-25" v-model="store.selectType" @change="$emit('select')">

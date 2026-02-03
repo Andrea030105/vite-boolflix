@@ -43,11 +43,9 @@ export default {
             <div class="container-star">
                 <i v-for="n in 5" :key="n" :class="getStarClass(n, item.vote_average)"></i>
             </div>
-            <div class="container-overview">
-                <p>
-                    Overview: {{ item.overview }}
-                </p>
-            </div>
+            <p>
+                Overview: {{ item.overview }}
+            </p>
         </div>
     </div>
 </template>
@@ -68,9 +66,11 @@ export default {
         position: absolute;
         bottom: 0;
         background-color: $cardInfoBg;
-        height: 100%;
+        max-height: 100%;
         width: 100%;
         padding: 2rem;
+        overflow-y: auto;
+        scrollbar-width: thin;
         cursor: pointer;
 
         .container-star {
@@ -82,13 +82,6 @@ export default {
             color: $whiteCl;
             font-size: 1.3rem;
             font-weight: 600;
-        }
-
-        .container-overview {
-            padding: 5px;
-            max-height: 45%;
-            overflow-y: auto;
-            scrollbar-width: thin;
         }
     }
 }

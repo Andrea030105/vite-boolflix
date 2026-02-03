@@ -33,11 +33,11 @@ export default {
     <main class="main-container bg-black">
         <SelectGenre @select="getGenre" />
         <section>
-            <div class="container py-5">
+            <div class="container py-3">
                 <div v-if="store.selectType === ''" class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
-                            <h2>
+                            <h2 class="mb-3">
                                 Film Trovati {{ store.filmSearchArray.length }}:
                             </h2>
                         </div>
@@ -51,11 +51,11 @@ export default {
                     </div>
                 </div>
             </div>
-            <div v-if="store.selectType === ''" class="container py-5">
+            <div v-if="store.selectType === ''" class="container py-3">
                 <div class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
-                            <h2>
+                            <h2 class="mb-3">
                                 Serie TV Trovate {{ store.serieSearchArray.length }}:
                             </h2>
                         </div>
@@ -76,15 +76,11 @@ export default {
 @use '../style/patrial/variables' as *;
 
 .main-container {
-    min-height: calc(100vh - 75px);
+    min-height: 100vh;
+    padding-top: 5rem;
 }
 
 .scrollbar {
     scrollbar-width: none;
-}
-
-h2:hover {
-    color: $primaryCl;
-    cursor: pointer;
 }
 </style>
