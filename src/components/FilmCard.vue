@@ -43,6 +43,11 @@ export default {
             <div class="container-star">
                 <i v-for="n in 5" :key="n" :class="getStarClass(n, item.vote_average)"></i>
             </div>
+            <div class="container-overview">
+                <p>
+                    Overview: {{ item.overview }}
+                </p>
+            </div>
         </div>
     </div>
 </template>
@@ -77,6 +82,13 @@ export default {
             color: $whiteCl;
             font-size: 1.3rem;
             font-weight: 600;
+        }
+
+        .container-overview {
+            padding: 5px;
+            max-height: 45%;
+            overflow-y: auto;
+            scrollbar-width: thin;
         }
     }
 }
