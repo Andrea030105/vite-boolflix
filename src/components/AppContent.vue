@@ -1,27 +1,40 @@
 <script>
 
+import SelectGenre from './SelectGenre.vue';
 import FilmCard from './FilmCard.vue';
+import SerieCard from './SerieCard.vue';
 
 import { store } from '../store';
-import SerieCard from './SerieCard.vue';
+
+import axios from 'axios';
 
 export default {
     components: {
+        SelectGenre,
         FilmCard,
-        SerieCard
+        SerieCard,
     },
     data() {
         return {
             store,
         }
     },
+    methods: {
+        getGenre() {
+            let newUrlCallGenreSeclect = store.urlCallGenreSelect + store.keyApi + "&with_genres=" + store.selectType
+            axios.get(newUrlCallGenreSeclect).then((response) => {
+                store.filmSearchArray = response.data.results
+            })
+        }
+    },
 }
 </script>
 <template>
     <main class="main-container bg-black">
+        <SelectGenre @select="getGenre" />
         <section>
             <div class="container py-5">
-                <div class="row">
+                <div v-if="store.selectType === ''" class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
                             <h2>
@@ -38,7 +51,7 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="container py-5">
+            <div v-if="store.selectType === ''" class="container py-5">
                 <div class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">

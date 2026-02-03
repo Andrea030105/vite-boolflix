@@ -3,7 +3,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppContent from './components/AppContent.vue';
 import { store } from './store';
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 
 export default {
   data() {
@@ -17,6 +17,7 @@ export default {
   },
   mounted() {
     this.defaultSearch();
+    this.callGenre();
   },
   methods: {
     defaultSearch() {
@@ -28,6 +29,7 @@ export default {
       })
     },
     titlesearch() {
+      store.selectType = "";
       let newUrl = store.url + store.keyApi + "&query=" + store.wordSearch;
       axios.get(newUrl).then((response) => {
         store.filmSearchArray = response.data.results
@@ -35,8 +37,20 @@ export default {
       let newUrlSerie = store.urlSerie + store.keyApi + "&query=" + store.wordSearch;
       axios.get(newUrlSerie).then((response) => {
         store.serieSearchArray = response.data.results
-        console.log(store.serieSearchArray)
       })
+    },
+    callGenre() {
+
+      let newUrlGenreFilm = store.urlGenreFilm + store.keyApi;
+      let newUrlGenreSerie = store.urlGenreSerie + store.keyApi;
+
+      Promise.all([
+        axios.get(newUrlGenreFilm),
+        axios.get(newUrlGenreSerie)
+      ]).then(([responseMovie, responseSerie]) => {
+        // Nota le parentesi quadre [responseMovie, responseSerie]
+        store.genreArray = [...responseMovie.data.genres, ...responseSerie.data.genres];
+      });
     }
   },
 }
