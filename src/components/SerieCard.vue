@@ -32,10 +32,10 @@ export default {
         <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title">
         <div class="card-info" v-if="(hoverActive == index)">
             <p>
-                Titolo: {{ item.original_title }}
+                Titolo: {{ item.name }}
             </p>
             <p>
-                Titolo Originale: {{ item.title }}
+                Titolo Originale: {{ item.original_name }}
             </p>
             <p>
                 Lingua Originale: {{ item.original_language }}
