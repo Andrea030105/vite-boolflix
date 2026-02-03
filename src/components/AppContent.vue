@@ -18,14 +18,14 @@ export default {
 }
 </script>
 <template>
-    <main class="bg-black">
+    <main class="main-container bg-black">
         <section>
             <div class="container py-5">
                 <div class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
                             <h2>
-                                Film:
+                                Film Trovati {{ store.filmSearchArray.length }}:
                             </h2>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ export default {
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
                             <h2>
-                                Serie TV:
+                                Serie TV Trovate {{ store.serieSearchArray.length }}:
                             </h2>
                         </div>
                     </div>
@@ -61,6 +61,10 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use '../style/patrial/variables' as *;
+
+.main-container {
+    min-height: calc(100vh - 75px);
+}
 
 .scrollbar {
     scrollbar-width: none;
