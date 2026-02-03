@@ -37,8 +37,11 @@ export default {
                 <div v-if="store.selectType === ''" class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
-                            <h2 class="mb-3">
+                            <h2 v-if="store.hasSearched" class="mb-3">
                                 Film Trovati {{ store.filmSearchArray.length }}:
+                            </h2>
+                            <h2 v-else class="text-white fw-bold fs-3 text-uppercase">
+                                Film di Tendenza:
                             </h2>
                         </div>
                     </div>
@@ -55,8 +58,11 @@ export default {
                 <div class="row">
                     <div class="col">
                         <div class="text-white fw-bold fs-3 text-uppercase">
-                            <h2 class="mb-3">
+                            <h2 v-if="store.hasSearched" class="mb-3">
                                 Serie TV Trovate {{ store.serieSearchArray.length }}:
+                            </h2>
+                            <h2 v-else class="text-white fw-bold fs-3 text-uppercase">
+                                Serie TV di Tendenza:
                             </h2>
                         </div>
                     </div>

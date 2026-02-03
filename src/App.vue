@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     defaultSearch() {
+      store.hasSearched = false;
       axios.get("https://api.themoviedb.org/3/trending/tv/day?api_key=85916cd89331c75a2a3e981197169b27").then((response) => {
         store.serieSearchArray = response.data.results
       });
@@ -29,6 +30,7 @@ export default {
       })
     },
     titlesearch() {
+      store.hasSearched = true;
       store.selectType = "";
       let newUrl = store.url + store.keyApi + "&query=" + store.wordSearch;
       axios.get(newUrl).then((response) => {
